@@ -7,6 +7,19 @@ ARCSEC_PER_RAD = 206265
 ARCSEC_PER_DEG = 3600
 
 
+# ---- ADDED FUNCTION (no changes to existing logic) ----
+def estimate_g(LB_arcsec, b_m, D=1.09e11):
+    """
+    Estimate gravitational acceleration using the empirical relation.
+    Parameters:
+        LB_arcsec : light bending in arcseconds
+        b_m       : impact parameter in meters
+    Returns:
+        g (m/s^2)
+    """
+    return (LB_arcsec * D) / b_m
+
+
 # ---- INPUT ----
 lb = float(input("Light bending value: "))
 lb_unit = input("Unit (arcsec/rad/deg): ")
